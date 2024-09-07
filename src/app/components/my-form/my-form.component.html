@@ -1,0 +1,63 @@
+<form class="p-3 mt-5" [formGroup]="form">
+  <div class="logo text-center">
+    <h3>My Application</h3>
+  </div>
+<div class="form-content d-flex justify-content-between flex-wrap mt-5">
+  <div class="form-group w-50">
+    <label for="usr">First Name </label>
+    <input type="text" class="form-control" formControlName="firstName" id="usr" placeholder="First Name">
+  </div>
+  <div class="form-group w-50">
+    <label for="usr">Last Name</label>
+    <input type="text" class="form-control" formControlName="lastName" id="usr"  placeholder="Last Name">
+  </div>
+  <div class="form-group w-50">
+    <label for="usr">Age</label>
+    <input type="number" class="form-control" formControlName="age" id="usr">
+  </div>
+  <div class="form-group w-50">
+    <label for="sel1">Select Country</label>
+    <select class="form-control" id="sel1" formControlName="country">
+      <option [disabled]="true" [selected]="true" value="">-- select country --</option>
+      <option value="1">Egypt</option>
+      <option value="2">USA</option>
+      <option value="3">ٍSpain</option>
+      <option value="4">France</option>
+    </select>
+  </div>
+  <div class="form-group w-50">
+    <label for="usr">Notes</label>
+    <textarea type="text" class="form-control" formControlName="comment" id="usr" placeholder="add your notes.."></textarea>
+  </div>
+<div class="type-bith w-50">
+  <div class="form-group w-100">
+    <label for="birthday">Birthday</label>
+    <input type="date" class="form-control"  id="birthday" formControlName="birthday">
+  </div>
+
+  <div class="gender d-flex w-100">
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input"formControlName='gender' value="male">Male 
+      </label>
+    </div>
+    <div class="form-check ml-2">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input"formControlName='gender' value="female">Female
+      </label>
+    </div>
+  </div>
+</div>
+ 
+<div class="form-check w-100">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" formControlName='agree' value="">I agree that all the data is correct.
+  </label>
+</div>
+</div>
+    <div class="actions d-flex justify-content-center mt-3">
+      <button class="btn btn-danger mr-2 ml-2" (click)="undo()" [disabled]="undoRedoCounter>formStateHistory.length-1">Undo</button>
+      <button class="btn btn-success mr-2 ml-2" (click)="redo()" [disabled]="undoRedoCounter<=0">Redo</button>
+    </div>
+</form>
+
